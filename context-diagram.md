@@ -1,14 +1,10 @@
-# Patient Appointment Rescheduling System
-
-## Context Diagram
+# Context Diagram
 
 ```mermaid
 flowchart LR
-    Patient -->|Reschedule Request| AppointmentSystem
-    AppointmentSystem -->|Updated Appointment Details| Patient
-
-    AppointmentSystem -->|Appointment Rescheduled Event| NotificationService
+    Patient -->|Reschedule appointment| AppointmentSystem
+    AppointmentSystem -->|Updated appointment| Patient
+    AppointmentSystem -->|Appointment change| NotificationService
     NotificationService -->|Notification| Patient
-
-    AppointmentSystem -->|Appointment Information| HealthcareProvider
-    HealthcareProvider -->|Updated Availability| AppointmentSystem
+    AppointmentSystem -->|Appointment details| Doctor
+    Doctor -->|Available time| AppointmentSystem
